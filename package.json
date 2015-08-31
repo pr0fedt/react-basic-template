@@ -1,0 +1,37 @@
+{
+  "name": "react-basic-template",
+  "version": "0.0.1",
+  "description": "Template for a React app(ES6)",
+  "main": "index.js",
+  "scripts": {
+    "compile": "./node_modules/.bin/gulp compile",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pr0fedt/react-basic-template.git"
+  },
+  "keywords": [
+    "react",
+    "examples",
+    "es6"
+  ],
+  "author": "Alexander V. Dodonov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pr0fedt/react-basic-template/issues"
+  },
+  "homepage": "https://github.com/pr0fedt/react-basic-template#readme",
+  "dependencies": {
+    "flux-ext": "0.0.2",
+    "moment": "^2.10.6",
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-runtime": "^5.8.20",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
+    "webpack": "^1.12.0"
+  }
+}
