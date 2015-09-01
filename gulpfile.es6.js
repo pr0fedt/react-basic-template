@@ -29,7 +29,8 @@ gulp.task('compile-frontend-js', (done) =>
 	})
 );
 
-gulp.task('compile-frontend-less', () => gulp.src('./less/frontend/index.less')
+gulp.task('compile-frontend-less', () => 
+	gulp.src('./style/frontend/index.less')
 	.pipe(sourcemaps.init())
 	.pipe(less())
 	.pipe(sourcemaps.write())
@@ -57,10 +58,10 @@ gulp.task('dev-frontend', (done) => {
 
 gulp.task('watch-frontend-js', () => gulp.watch(
 	'src/frontend/**/*.js',
-	['compile-frontend']
+	['compile-frontend-js']
 ));
 
 gulp.task('watch-frontend-less', () => gulp.watch(
-	'src/frontend/**/*.js',
-	['compile-frontend']
+	'style/frontend/**/*.less',
+	['compile-frontend-less']
 ));

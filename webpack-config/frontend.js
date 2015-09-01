@@ -11,7 +11,9 @@ export const frontend = {
 	],
 
 	debug: true,
+
 	devtool: '#source-map',
+	
 	output: {
 		path: path.join(__dirname, '..', 'build', 'frontend'),
 		filename: 'bundle.js',
