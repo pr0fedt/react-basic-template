@@ -16,5 +16,5 @@ export const DEFAULT = {
 		'content': 'width=device-width, initial-scale=1'
 	}],
 	LANGUAGE: 'en',
-	LOCAL_STOGAGE_PREFIX: 'app:prfx:0001'
+	LOCAL_STORAGE_PREFIX: 'app:prfx:0001'
 }

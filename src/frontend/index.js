@@ -13,8 +13,8 @@ import routes from 'modules/core/routes';
  * @ifenv('debug')
  **/
 // Log actions
-Dispatcher.instance.log = (...args) => console.log(args);
-Dispatcher.instance.dispatch('Application->Start', {at: moment()}, 'View');
+Dispatcher.instance.log = (...args) => 
+	console.log('Action Log', ...args);
 // Needed for React Developer Tools
 window.React = React;
 /**
