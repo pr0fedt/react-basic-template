@@ -1,27 +1,19 @@
 'use strict';
 
 import React from 'react';
-import mui from 'material-ui';
+import {Dialog, Paper, RaisedButton, Styles} from 'material-ui';
 
-const {Dialog, RaisedButton} = mui;
-const {ThemeManager, Colors} = mui.Styles;
+import {MaterialMixin} from 'modules/core/mixins';
 
-const themeManagerInstance = ThemeManager();
+const {Colors} = Styles;
 
 const HomePage = React.createClass({
-
-	childContextTypes: {
-		muiTheme: React.PropTypes.object
-	},
-
-	getChildContext(){
-		let muiTheme = themeManagerInstance.getCurrentTheme();
-		return {muiTheme};
-	},
-
+	mixins: [
+		MaterialMixin
+	],
 	componentWillMount(){
 		let accent1Color = Colors.deepOrange500;
-		themeManagerInstance.setPalette({accent1Color});
+		this.ThemeManager.setPalette({accent1Color});
 	},
 
 	handleTouchTap(e){

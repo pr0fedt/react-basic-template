@@ -8,7 +8,7 @@ import sourcemaps from 'gulp-sourcemaps';
 import webpack from 'webpack';
 import DevServer from 'webpack-dev-server';
 
-import {frontend} from './webpack-config';
+import {FrontendDevConfig} from './webpack-config';
 
 const localServer = {
 	host: 'localhost',
@@ -20,11 +20,14 @@ gulp.task('compile', ['compile-frontend-js', 'compile-frontend-less']);
 gulp.task('watch', ['watch-frontend-js', 'watch-frontend-less']);
 
 gulp.task('compile-frontend-js', (done) => 
-	webpack(frontend, (err, stats) => {
+	webpack(FrontendDevConfig, (err, stats) => {
 		if(err){
 			throw new gutil.PluginError('webpack', err);
 		}
-		gutil.log(`[webpack]${stats.toString({})}`);
+		gutil.log(
+			gutil.colors.green('[webpack]'),
+			gutil.colors.blue(stats.toString({}))
+		);
 		done(); 
 	})
 );
@@ -38,19 +41,21 @@ gulp.task('compile-frontend-less', () =>
 );
 
 gulp.task('dev-frontend', (done) => {
-	const compiler = webpack(frontend);
+	const compiler = webpack(FrontendDevConfig);
 	const server = new DevServer(compiler, {
-		publicPath: frontend.output.publicPath,
+		publicPath: FrontendDevConfig.output.publicPath,
 		hot: true
 	});
+	
 	const {host, port} = localServer;
 	server.listen(port, host, (err, res) => {
 		if(err){
-			console.log(err);
+			throw new gutil.PluginError('webpack-dev-server', err);
 		}
-
-		console.log(`Listening at ${host}:${port}`);
-
+		gutil.log(
+			'Dev server listening at', 
+			gutil.colors.green(`${host}:${port}`)
+		);
 		/* Uncomment line below not to persist server */
 		// done();
 	});

@@ -3,7 +3,10 @@
 import path from 'path';
 import webpack from 'webpack';
 
-export const frontend = {
+const appRoot = path.join(__dirname, '..', 'src', 'frontend');
+const buildDir = path.join(__dirname, '..', 'build', 'frontend');
+
+export const FrontendDevConfig = {
 	entry: [
 		'webpack-dev-server/client?http://localhost:3000',
 		'webpack/hot/dev-server',
@@ -15,9 +18,9 @@ export const frontend = {
 	devtool: '#source-map',
 	
 	output: {
-		path: path.join(__dirname, '..', 'build', 'frontend'),
+		path: buildDir,
+		publicPath: '/build/frontend',
 		filename: 'bundle.js',
-		publicPath: '/build/',
 		pathinfo: true
 	},
 
@@ -26,7 +29,7 @@ export const frontend = {
 	],
 
 	resolve: {
-		root: path.join(__dirname, '..', 'src', 'frontend'),
+		root: appRoot,
 		extensions: ['', '.js', '.es6']
 	},
 

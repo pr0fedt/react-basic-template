@@ -1,3 +1,3 @@
 'use strict';
 
-export {frontend} from './frontend';
+export {FrontendDevConfig} from './frontend-dev-config';

@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-    	<title>loading ...</title>
-    	<link rel="stylesheet" href="/build/frontend/index.css" />
-	</head>
-	<body class="application-body">
-		<!-- Add Roboto Font -->
-		<script>
-    	var WebFontConfig = {
-      		google: { families: [ 'Roboto:400,300,500:latin' ] }
-    	};
-    	(function() {
-      		var wf = document.createElement('script');
-      		wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-      		'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-      		wf.type = 'text/javascript';
-      		wf.async = 'true';
-      		var s = document.getElementsByTagName('script')[0];
-      		s.parentNode.insertBefore(wf, s);
-    	})();
-  		</script>
-  		<!-- Load Application -->
-  		<script src="/build/frontend/bundle.js"></script>
-	</body>
+  <head>
+    <title>loading ...</title>
+    <link rel="stylesheet" href="/build/frontend/index.css" />
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body class="application-body">
+    <!-- Add Roboto Font -->
+    <script>
+      var WebFontConfig = {
+        google: { families: [ 'Roboto:400,300,500:latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = (
+          'https:' == document.location.protocol ? 
+          'https' : 'http'
+        ) + '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+    </script>
+    <!-- Webpack Dev Server Tools -->
+    <script src="http://localhost:3000/webpack-dev-server.js"></script>
+    <!-- Load Application -->
+    <script src="/build/frontend/bundle.js"></script>
+  </body>
 </html>
