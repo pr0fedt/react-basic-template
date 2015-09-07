@@ -1,0 +1,17 @@
+#!/bin/env node
+var fs = require('fs');
+var path = require('path');
+
+var root = path.join(__dirname, '..');
+var gulpfile = 'gulpfile.es6.js';
+
+fs.createReadStream(path.join(root, 'webpack', gulpfile))
+.pipe(fs.createWriteStream(path.join(root, gulpfile)))
+.on('finish', function(){
+	console.log('Webpack build selected');
+	process.exit(0);
+})
+.on('error', function(err){
+ 	console.error(err);
+ 	process.exit(1);
+});

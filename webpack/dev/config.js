@@ -3,14 +3,23 @@
 import path from 'path';
 import webpack from 'webpack';
 
-const appRoot = path.join(__dirname, '..', 'src', 'frontend');
-const buildDir = path.join(__dirname, '..', 'build', 'frontend');
+const rootDir = path.join(__dirname, '..', '..');
+const wwwDir = path.join(rootDir, 'www');
+const buildDir = path.join(wwwDir, 'build');
+const appDir = path.join(rootDir, 'src', 'frontend');
 
 export const FrontendDevConfig = {
+	html: {
+		source: path.join(rootDir, 'webpack', 'dev', 'index.html'),
+		destination: wwwDir,
+	},
+
+	paths: {appDir, buildDir, rootDir, wwwDir},
+
 	entry: [
 		'webpack-dev-server/client?http://localhost:3000',
 		'webpack/hot/dev-server',
-		'./src/frontend'
+		appDir
 	],
 
 	debug: true,
@@ -19,7 +28,7 @@ export const FrontendDevConfig = {
 	
 	output: {
 		path: buildDir,
-		publicPath: '/build/frontend',
+		publicPath: '/build',
 		filename: 'bundle.js',
 		pathinfo: true
 	},
@@ -29,7 +38,7 @@ export const FrontendDevConfig = {
 	],
 
 	resolve: {
-		root: appRoot,
+		root: appDir,
 		extensions: ['', '.js', '.es6']
 	},
 

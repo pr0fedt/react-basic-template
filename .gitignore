@@ -1,3 +1,5 @@
-build
-node_modules
+.DS_Store
 *.log
+gulpfile.es6.js
+node_modules
+www
