@@ -1,5 +1,5 @@
 .DS_Store
 *.log
-gulpfile.es6.js
+./gulpfile.es6.js
 node_modules
 www
